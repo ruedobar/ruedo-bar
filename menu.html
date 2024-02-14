@@ -44,11 +44,26 @@
     </div>
     <!-- Navbar End -->
 
-
     <!-- Desayunos Start -->
     <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
         <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 100px">
-            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-primary text-uppercase">DESAYUNOS</h1>
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-primary text-uppercase">MENU DIARIO</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" id="script-menuDiario"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Desayunos End -->
+
+    <!-- Desayunos Start -->
+    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+        <div class="container py-3">
+            <h1 class="display-3 text-primary mt-3">DESAYUNOS</h1>
         </div>
     </div>
 
@@ -273,6 +288,24 @@
             .then(response => response.json())
             .then(data => {
                 
+                //MENU DIARIO
+                let listaMenuDiario = document.getElementById('script-desayunos');
+                for (var key in data.menuDiario) {
+                    if (data.menuDiario.hasOwnProperty(key)) {
+                        var menuDiarioOBJ = data.menuDiario[key];
+                        var menuDiarioHTML = `
+                            <div class="row align-items-center mb-5">
+                                <div class="col-12 col-sm-9">
+                                    <h4>${menuDiarioOBJ.nombre}</h4>
+                                    <p class="m-0">${menuDiarioOBJ.descripcion}</p>
+                                    <h5 class="menu-price">$${menuDiarioOBJ.precio}</h5>
+                                </div>
+                            </div>
+                        `;
+                        listaMenuDiario.innerHTML += menuDiarioHTML;
+                    }
+                }
+
                 //DESAYUNOS
                 let listaDesayunos = document.getElementById('script-desayunos');
                 for (var key in data.desayunos) {
