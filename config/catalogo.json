@@ -1,0 +1,77 @@
+{
+    "desayunos" : {
+        "1" : {
+            "nombre" : "Clásico 01",
+            "descripcion" : "Café con leche c/ 2 medialunas o facturas",
+            "precio" : "1200"
+        },
+        "2" : {
+            "nombre" : "Clásico 02",
+            "descripcion" : "Café con leche c/ tostadas, queso y mermelada",
+            "precio" : "1300"
+        }
+    },
+    "cafeteria" : {
+        "cafe" : {
+            "1" : {
+                "nombre" : "Café / Cortado / Lágrima",
+                "precio" : "1000"
+            },
+            "2" : {
+                "nombre" : "Café con crema",
+                "precio" : "1000"
+            },
+            "3" : {
+                "nombre" : "Café doble",
+                "precio" : "1000"
+            },
+            "4" : {
+                "nombre" : "Café en jarrita",
+                "precio" : "1000"
+            }
+        },
+        "te" : {
+            "1" : {
+                "nombre" : "Sólo",
+                "precio" : "1000"
+            },
+            "2" : {
+                "nombre" : "Con limón",
+                "precio" : "1000"
+            },
+            "3" : {
+                "nombre" : "Con leche",
+                "precio" : "1000"
+            }
+        },
+        "mateCocido" : {
+            "1" : {
+                "nombre" : "Sólo",
+                "precio" : "1000"
+            },
+            "2" : {
+                "nombre" : "Con leche",
+                "precio" : "1000"
+            }
+        },
+        "lacteo" : {
+            "1" : {
+                "nombre" : "Sola",
+                "precio" : "1000"
+            },
+            "2" : {
+                "nombre" : "Remo",
+                "precio" : "1000"
+            },
+            "3" : {
+                "nombre" : "Submarino",
+                "precio" : "1000"
+            },
+            "4" : {
+                "nombre" : "Capuchino",
+                "precio" : "1000"
+            }
+        }
+    }
+
+}
