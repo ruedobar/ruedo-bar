@@ -1,0 +1,20 @@
+{
+    "menuDiario" : {
+        "1" : {
+            "nombre" : "Canelones de verdura y mozzarella con salsa mixta",
+            "precio" : "1000"
+        },
+        "2" : {
+            "nombre" : "Filete de pollo a la mostaza con papas",
+            "precio" : "2000"
+        },
+        "3" : {
+            "nombre" : "Risotto con vegetales",
+            "precio" : "3000"
+        },
+        "4" : {
+            "nombre" : "Sandwich tostado de jamón, queso, tomate y huevo con papas",
+            "precio" : "4000"
+        }
+    }
+}

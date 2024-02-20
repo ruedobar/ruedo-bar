@@ -1,18 +1,4 @@
 {
-    "menuDiario" : {
-        "1" : {
-            "nombre" : "Menú 1",
-            "precio" : "1000"
-        },
-        "2" : {
-            "nombre" : "Menú 2",
-            "precio" : "2000"
-        },
-        "3" : {
-            "nombre" : "Menú 3",
-            "precio" : "3000"
-        }
-    },
     "desayunos" : {
         "1" : {
             "nombre" : "Clásico 01",

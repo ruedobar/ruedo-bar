@@ -24,6 +24,54 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.min.css" rel="stylesheet">
+
+    <style>
+        .menu-price2 {
+            position: inherit !important;
+            width: 100% !important;
+        }
+
+        .nombreMenuDiario {
+            color: rgb(44, 47, 48);
+        }
+
+        #script-menuDiario {
+            background:
+                calc( .9*32px) calc( .9*32px)/calc(2*32px) calc(2*32px) conic-gradient(at 20% 20%,#0000 75%,#d5ffd5 0),
+                calc(-.1*32px) calc(-.1*32px)/calc(2*32px) calc(2*32px) conic-gradient(at 20% 20%,#0000 75%,#caf6ca 0),
+                calc( .7*32px) calc( .7*32px)/calc(2*32px) calc(2*32px) conic-gradient(at 40% 40%,#0000 75%,#FFFBF2 0),
+                calc(-.3*32px) calc(-.3*32px)/calc(2*32px) calc(2*32px) conic-gradient(at 40% 40%,#0000 75%,#FFFBF2 0),
+                conic-gradient(from 90deg at 20% 20%,#e0ede0 25%,#FFFBF2 0) 0 0/32px 32px;
+
+        }
+
+        .titDomicilio {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 5%;
+        }
+        
+        .titDomicilio_btn {
+            width: 100%;
+            text-align: center;
+            height: 50px;
+            background-color: chocolate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .titDomicilio_btn a {
+            font-weight: bold;
+            color: #170000;
+
+        }
+       
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.0/dist/xlsx.full.min.js"></script>
+
+
 </head>
 
 <body>
@@ -44,24 +92,27 @@
     </div>
     <!-- Navbar End -->
 
-    <!-- Desayunos Start -->
-    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <!-- MENU DEL DIA Start -->
+    <div class="container-fluid page-header position-relative">
         <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 100px">
-            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-primary text-uppercase">MENU DEL DIA</h1>
+            <h1 class="display-4 mt-0 mt-lg-5 text-primary text-uppercase">MENU DEL DIA</h1>
         </div>
     </div>
 
-    <div class="container-fluid pt-5">
+    <div class="container-fluid pt-2 ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6" id="script-menuDiario"></div>
             </div>
         </div>
     </div>
-    <!-- Desayunos End -->
+
+    <div class="titDomicilio">Envíos a domicilio!</div>
+    <div class="titDomicilio_btn"><a href="https://wa.me/5493412148540" target="_blank">>>>Hacé tu pedido acá<<<</a></div>
+    <!-- MENU DEL DIA End -->
 
     <!-- Desayunos Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">DESAYUNOS</h1>
         </div>
@@ -281,131 +332,170 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script>
-        var url = "https://ruedobar.github.io/ruedo-bar/config/catalogo.json";
+        //XSLS
+        function downloadFile(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'blob';
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    callback(null, xhr.response);
+                } else {
+                    callback(new Error('Failed to download file'));
+                }
+            };
+            xhr.send();
+        }
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                
-                //MENU DIARIO
-                let listaMenuDiario = document.getElementById('script-menuDiario');
-                for (var key in data.menuDiario) {
-                    if (data.menuDiario.hasOwnProperty(key)) {
-                        var menuDiarioOBJ = data.menuDiario[key];
-                        var menuDiarioHTML = `
+        function handleFile(blob) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var data = new Uint8Array(e.target.result);
+                var workbook = XLSX.read(data, {type: 'array'});
+                var sheet_name_list = workbook.SheetNames;
+
+                leerMenuDiario(workbook, sheet_name_list);
+                leerDesayunos(workbook, sheet_name_list);
+                leerCafe(workbook, sheet_name_list);
+                leerTe(workbook, sheet_name_list);
+                leerMateCocido(workbook, sheet_name_list);
+                leerLacteo(workbook, sheet_name_list);
+
+            };
+            reader.readAsArrayBuffer(blob);
+        }
+
+        function leerMenuDiario(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]], {header: 1});
+            let listaMenuDiario = document.getElementById('script-menuDiario');
+
+            for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
+                var row = xlData[i];
+
+                var menuDiarioHTML = `
+                <div style="justify-content: center; margin-bottom: 1.5rem !important;" class="row align-items-center mt-5 mb-5" id="head-${i}-MD">
+                    <h5 class="mb-0">
+                        <button style="text-decoration: none !important;" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-${i}-MD" aria-expanded="false" aria-controls="collapse-${i}-MD">
+                            <h4 class="nombreMenuDiario">${row[1]}</h4>
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapse-${i}-MD" class="collapse" aria-labelledby="head-${i}-MD" data-parent="#accordion">
+                    <h5 class="menu-price menu-price2">$${row[2]}</h5>
+                </div>
+                `;
+                listaMenuDiario.innerHTML += menuDiarioHTML;
+            }
+        };
+        function leerDesayunos(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
+            let listaDesayunos = document.getElementById('script-desayunos');
+
+            for (var i = 2; i < xlData.length && xlData[i][16] !== undefined; i++) {
+                var row = xlData[i];
+
+                var desayunoHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[16]}</h4>
+                            <p class="m-0">${row[17]}</p>
+                            <h5 class="menu-price">$${row[18]}</h5>
+                        </div>
+                    </div>
+                `;
+                listaDesayunos.innerHTML += desayunoHTML;
+            }
+        };
+        function leerCafe(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
+            let listaCafeteria = document.getElementById('script-cafeteria-cafe');
+
+            for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
                             <div class="row align-items-center mb-5">
                                 <div class="col-12 col-sm-9">
-                                    <h4>${menuDiarioOBJ.nombre}</h4>
-                                    <h5 class="menu-price">$${menuDiarioOBJ.precio}</h5>
+                                    <h4>${row[1]}</h4>
+                                    <h5 class="menu-price">$${row[2]}</h5>
                                 </div>
                             </div>
                         `;
-                        listaMenuDiario.innerHTML += menuDiarioHTML;
-                    }
-                }
+                listaCafeteria.innerHTML += itemHTML;
+            }
+        };
+        function leerTe(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
+            let listaTe = document.getElementById('script-cafeteria-te');
 
-                //DESAYUNOS
-                let listaDesayunos = document.getElementById('script-desayunos');
-                for (var key in data.desayunos) {
-                    if (data.desayunos.hasOwnProperty(key)) {
-                        var desayuno = data.desayunos[key];
-                        var desayunoHTML = `
+            for (var i = 2; i < xlData.length && xlData[i][4] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
                             <div class="row align-items-center mb-5">
                                 <div class="col-12 col-sm-9">
-                                    <h4>${desayuno.nombre}</h4>
-                                    <p class="m-0">${desayuno.descripcion}</p>
-                                    <h5 class="menu-price">$${desayuno.precio}</h5>
+                                    <h4>${row[4]}</h4>
+                                    <h5 class="menu-price">$${row[5]}</h5>
                                 </div>
                             </div>
                         `;
-                        listaDesayunos.innerHTML += desayunoHTML;
-                    }
-                }
+                listaTe.innerHTML += itemHTML;
+            }
+        };
+        function leerMateCocido(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
+            let listaMateCocido = document.getElementById('script-cafeteria-mateCocido');
 
-                //CAFETERIA
-                let listaCafeteria = document.getElementById('script-cafeteria-cafe');
-                let listaCafe = data.cafeteria.cafe;
+            for (var i = 2; i < xlData.length && xlData[i][7] !== undefined; i++) {
+                var row = xlData[i];
 
-                for (var key in listaCafe) {
-                    if (listaCafe.hasOwnProperty(key)) {
-                        var item = listaCafe[key];
-                        var itemHTML = `
+                var itemHTML = `
                             <div class="row align-items-center mb-5">
                                 <div class="col-12 col-sm-9">
-                                    <h4>${item.nombre}</h4>
-                                    <h5 class="menu-price">$${item.precio}</h5>
+                                    <h4>${row[7]}</h4>
+                                    <h5 class="menu-price">$${row[8]}</h5>
                                 </div>
                             </div>
                         `;
-                        listaCafeteria.innerHTML += itemHTML;
-                    }
-                }
+                listaMateCocido.innerHTML += itemHTML;
+            }
+        };
+        function leerLacteo(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
+            let listaLacteo = document.getElementById('script-cafeteria-lacteo');
 
-                //TE
-                let listaTes = document.getElementById('script-cafeteria-te');
-                let listaTe = data.cafeteria.te;
+            for (var i = 2; i < xlData.length && xlData[i][10] !== undefined; i++) {
+                var row = xlData[i];
 
-                for (var key in listaTe) {
-                    if (listaTe.hasOwnProperty(key)) {
-                        var item = listaTe[key];
-                        var itemHTML = `
+                var itemHTML = `
                             <div class="row align-items-center mb-5">
                                 <div class="col-12 col-sm-9">
-                                    <h4>${item.nombre}</h4>
-                                    <h5 class="menu-price">$${item.precio}</h5>
+                                    <h4>${row[10]}</h4>
+                                    <h5 class="menu-price">$${row[11]}</h5>
                                 </div>
                             </div>
                         `;
-                        listaTes.innerHTML += itemHTML;
-                    }
-                }
-
-                //mateCocido
-                let listaMatesCocido = document.getElementById('script-cafeteria-mateCocido');
-                let listaMateCocido = data.cafeteria.mateCocido;
-
-                for (var key in listaMateCocido) {
-                    if (listaMateCocido.hasOwnProperty(key)) {
-                        var item = listaMateCocido[key];
-                        var itemHTML = `
-                            <div class="row align-items-center mb-5">
-                                <div class="col-12 col-sm-9">
-                                    <h4>${item.nombre}</h4>
-                                    <h5 class="menu-price">$${item.precio}</h5>
-                                </div>
-                            </div>
-                        `;
-                        listaMatesCocido.innerHTML += itemHTML;
-                    }
-                }
-
-                //lacteo
-                let listaLacteos = document.getElementById('script-cafeteria-lacteo');
-                let listaLacteo = data.cafeteria.lacteo;
-
-                for (var key in listaLacteo) {
-                    if (listaLacteo.hasOwnProperty(key)) {
-                        var item = listaLacteo[key];
-                        var itemHTML = `
-                            <div class="row align-items-center mb-5">
-                                <div class="col-12 col-sm-9">
-                                    <h4>${item.nombre}</h4>
-                                    <h5 class="menu-price">$${item.precio}</h5>
-                                </div>
-                            </div>
-                        `;
-                        listaLacteos.innerHTML += itemHTML;
-                    }
-                }
+                listaLacteo.innerHTML += itemHTML;
+            }
+        };
 
 
+        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
+        downloadFile(fileUrl, function(err, blob) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            handleFile(blob);
+        });
 
-            })
-            .catch(error => console.error('Error al cargar el archivo JSON:', error));
     </script>
-
-
 
 
 </body>
