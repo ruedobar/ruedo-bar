@@ -179,7 +179,12 @@
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6" id="script-sandwiches"></div>
+                <div class="col-lg-6" id="script-simples">Simples</div>
+                <div class="col-lg-6" id="script-triples">Triples</div>
+                <div class="col-lg-6" id="script-especiales">Especiales</div>
+                <div class="col-lg-6" id="script-tostados">Carlitos/Tostados</div>
+                <div class="col-lg-6" id="script-hamburguesas">Hamburguesas</div>
+                <div class="col-lg-6" id="script-lomitos">Lomitos</div>
             </div>
         </div>
     </div>
@@ -195,7 +200,9 @@
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6" id="script-cocina"></div>
+                <div class="col-lg-6" id="script-empanadas">Nuestras empanadas</div>
+                <div class="col-lg-6" id="script-picar">Para picar</div>
+                <div class="col-lg-6" id="script-omelette">Omelette</div>
             </div>
         </div>
     </div>
@@ -260,6 +267,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6" id="script-bebidas"></div>
+                <div class="col-lg-6" id="script-cervezas">CERVEZAS</div>
+                <div class="col-lg-6" id="script-licuados">LICUADOS</div>
+                
             </div>
         </div>
     </div>
@@ -358,19 +368,39 @@
                 var data = new Uint8Array(e.target.result);
                 var workbook = XLSX.read(data, {type: 'array'});
                 var sheet_name_list = workbook.SheetNames;
+                
+                insertarMenuDiario(workbook, sheet_name_list);
+                insertarDesayunos(workbook, sheet_name_list);
+                insertarCafe(workbook, sheet_name_list);
+                insertarTe(workbook, sheet_name_list);
+                insertarMateCocido(workbook, sheet_name_list);
+                insertarLacteo(workbook, sheet_name_list);
+                insertarPanificado(workbook, sheet_name_list);
 
-                leerMenuDiario(workbook, sheet_name_list);
-                leerDesayunos(workbook, sheet_name_list);
-                leerCafe(workbook, sheet_name_list);
-                leerTe(workbook, sheet_name_list);
-                leerMateCocido(workbook, sheet_name_list);
-                leerLacteo(workbook, sheet_name_list);
+                insertarSimples(workbook, sheet_name_list);
+                insertarTriples(workbook, sheet_name_list);
+                insertarEspeciales(workbook, sheet_name_list);
+                insertarTostados(workbook, sheet_name_list);
+                insertarHamburguesas(workbook, sheet_name_list);
+                insertarLomitos(workbook, sheet_name_list);
 
+                insertarEmpanadas(workbook, sheet_name_list);
+                insertarPicar(workbook, sheet_name_list);
+                insertarOmelette(workbook, sheet_name_list);
+                insertarPastas(workbook, sheet_name_list);
+                insertarPizzas(workbook, sheet_name_list);
+                insertarTablas(workbook, sheet_name_list);
+                insertarBebidas(workbook, sheet_name_list);
+                insertarCervezas(workbook, sheet_name_list);
+                insertarLicuados(workbook, sheet_name_list);
+                insertarPostres(workbook, sheet_name_list);
+                
             };
             reader.readAsArrayBuffer(blob);
         }
-
-        function leerMenuDiario(workbook, sheet_name_list) {
+        
+        //C1
+        function insertarMenuDiario(workbook, sheet_name_list) {
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]], {header: 1});
             let listaMenuDiario = document.getElementById('script-menuDiario');
 
@@ -393,7 +423,7 @@
                 listaMenuDiario.innerHTML += menuDiarioHTML;
             }
         };
-        function leerDesayunos(workbook, sheet_name_list) {
+        function insertarDesayunos(workbook, sheet_name_list) {
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
             let listaDesayunos = document.getElementById('script-desayunos');
 
@@ -412,7 +442,7 @@
                 listaDesayunos.innerHTML += desayunoHTML;
             }
         };
-        function leerCafe(workbook, sheet_name_list) {
+        function insertarCafe(workbook, sheet_name_list) {
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
             let listaCafeteria = document.getElementById('script-cafeteria-cafe');
 
@@ -430,7 +460,7 @@
                 listaCafeteria.innerHTML += itemHTML;
             }
         };
-        function leerTe(workbook, sheet_name_list) {
+        function insertarTe(workbook, sheet_name_list) {
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
             let listaTe = document.getElementById('script-cafeteria-te');
 
@@ -448,7 +478,7 @@
                 listaTe.innerHTML += itemHTML;
             }
         };
-        function leerMateCocido(workbook, sheet_name_list) {
+        function insertarMateCocido(workbook, sheet_name_list) {
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
             let listaMateCocido = document.getElementById('script-cafeteria-mateCocido');
 
@@ -466,7 +496,7 @@
                 listaMateCocido.innerHTML += itemHTML;
             }
         };
-        function leerLacteo(workbook, sheet_name_list) {
+        function insertarLacteo(workbook, sheet_name_list) {
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
             let listaLacteo = document.getElementById('script-cafeteria-lacteo');
 
@@ -484,7 +514,337 @@
                 listaLacteo.innerHTML += itemHTML;
             }
         };
+        function insertarPanificado(workbook, sheet_name_list) {
+            //script-panificados
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
+            let listaPanificado = document.getElementById('script-panificados');
 
+            for (var i = 2; i < xlData.length && xlData[i][13] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                            <div class="row align-items-center mb-5">
+                                <div class="col-12 col-sm-9">
+                                    <h4>${row[13]}</h4>
+                                    <h5 class="menu-price">$${row[14]}</h5>
+                                </div>
+                            </div>
+                        `;
+                        listaPanificado.innerHTML += itemHTML;
+            }
+        };
+
+        //C2
+        function insertarSimples(workbook, sheet_name_list) {
+            //script-simples
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaSimples = document.getElementById('script-simples');
+
+            for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[1]}</h4>
+                                <p class="m-0">${row[2]}</p>
+                                <h5 class="menu-price">$${row[3]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaSimples.innerHTML += itemHTML;
+            }
+        };
+        function insertarTriples(workbook, sheet_name_list) {
+            //script-triples
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaTriples = document.getElementById('script-triples');
+
+            for (var i = 2; i < xlData.length && xlData[i][5] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[5]}</h4>
+                                <p class="m-0">${row[6]}</p>
+                                <h5 class="menu-price">$${row[7]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaTriples.innerHTML += itemHTML;
+            }
+        };
+        function insertarEspeciales(workbook, sheet_name_list) {
+            //script-especiales
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaEspeciales = document.getElementById('script-especiales');
+
+            for (var i = 2; i < xlData.length && xlData[i][21] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[21]}</h4>
+                                <p class="m-0">${row[22]}</p>
+                                <h5 class="menu-price">$${row[23]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaEspeciales.innerHTML += itemHTML;
+            }
+        };
+        function insertarTostados(workbook, sheet_name_list) {
+            //script-tostados
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaTostados = document.getElementById('script-tostados');
+
+            for (var i = 2; i < xlData.length && xlData[i][21] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[21]}</h4>
+                                <p class="m-0">${row[22]}</p>
+                                <h5 class="menu-price">$${row[23]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaTostados.innerHTML += itemHTML;
+            }
+        };
+        function insertarHamburguesas(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaHamburguesas = document.getElementById('script-hamburguesas');
+
+            for (var i = 2; i < xlData.length && xlData[i][13] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[13]}</h4>
+                                <p class="m-0">${row[14]}</p>
+                                <h5 class="menu-price">$${row[15]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaHamburguesas.innerHTML += itemHTML;
+            }
+        };
+        function insertarLomitos(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaLomitos = document.getElementById('script-lomitos');
+
+            for (var i = 2; i < xlData.length && xlData[i][11] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[9]}</h4>
+                                <p class="m-0">${row[10]}</p>
+                                <h5 class="menu-price">$${row[11]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaLomitos.innerHTML += itemHTML;
+            }
+        };
+
+        //C3
+        function insertarEmpanadas(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaEmpanadas = document.getElementById('script-empanadas');
+
+            for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                            <div class="row align-items-center mb-5">
+                                <div class="col-12 col-sm-9">
+                                    <h4>${row[1]}</h4>
+                                    <h5 class="menu-price">$${row[2]}</h5>
+                                </div>
+                            </div>
+                        `;
+                        listaEmpanadas.innerHTML += itemHTML;
+            }
+        };
+        function insertarPicar(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
+            let listaPicar = document.getElementById('script-picar');
+
+            for (var i = 2; i < xlData.length && xlData[i][11] !== undefined; i++) {
+                var row = xlData[i];
+
+                if (row[12] != undefined) {
+                    var descr = `<p class="m-0">${row[12]}</p>`;
+                } else {
+                    var descr = "";
+                }
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[11]}</h4>
+                            <p class="m-0">${descr}</p>
+                            <h5 class="menu-price">$${row[13]}</h5>
+                        </div>
+                    </div>
+                    `;
+                listaPicar.innerHTML += itemHTML;
+            }
+        };
+        function insertarOmelette(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaOmelette = document.getElementById('script-omelette');
+
+            for (var i = 2; i < xlData.length && xlData[i][4] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[4]}</h4>
+                            <p class="m-0">${row[5]}</p>
+                            <h5 class="menu-price">$${row[6]}</h5>
+                        </div>
+                    </div>
+                    `;
+                listaOmelette.innerHTML += itemHTML;
+            }
+        };
+        function insertarPastas(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
+            let listaPastas = document.getElementById('script-pastas');
+
+            for (var i = 2; i < xlData.length && xlData[i][4] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[4]}</h4>
+                            <h5 class="menu-price">$${row[5]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaPastas.innerHTML += itemHTML;
+            }
+        };
+        function insertarPizzas(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
+            let listaPizzas = document.getElementById('script-pizzas');
+
+            for (var i = 2; i < xlData.length && xlData[i][7] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[7]}</h4>
+                            <p class="m-0">${row[8]}</p>
+                            <h5 class="menu-price">$${row[9]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaPizzas.innerHTML += itemHTML;
+            }
+        };
+        function insertarTablas(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
+            let listaTablas = document.getElementById('script-tablas');
+
+            for (var i = 2; i < xlData.length && xlData[i][15] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[15]}</h4>
+                            <p class="m-0">${row[16]}</p>
+                            <h5 class="menu-price">$${row[17]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaTablas.innerHTML += itemHTML;
+            }
+        };
+        function insertarBebidas(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaBebidas = document.getElementById('script-bebidas');
+
+            for (var i = 2; i < xlData.length && xlData[i][8] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[8]}</h4>
+                            <h5 class="menu-price">$${row[9]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaBebidas.innerHTML += itemHTML;
+            }
+        };
+        function insertarCervezas(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaCervezas = document.getElementById('script-cervezas');
+
+            for (var i = 2; i < xlData.length && xlData[i][11] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[11]}</h4>
+                            <h5 class="menu-price">$${row[12]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaCervezas.innerHTML += itemHTML;
+            }
+        };
+        function insertarLicuados(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaLicuados = document.getElementById('script-licuados');
+
+            for (var i = 2; i < xlData.length && xlData[i][14] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[14]}</h4>
+                            <h5 class="menu-price">$${row[15]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaLicuados.innerHTML += itemHTML;
+            }
+        };
+        function insertarPostres(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
+            let listaPostres = document.getElementById('script-postres');
+
+            for (var i = 2; i < xlData.length && xlData[i][19] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[19]}</h4>
+                            <h5 class="menu-price">$${row[20]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaPostres.innerHTML += itemHTML;
+            }
+        };
 
         var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
         downloadFile(fileUrl, function(err, blob) {
