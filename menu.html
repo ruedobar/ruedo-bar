@@ -32,16 +32,21 @@
         }
 
         .nombreMenuDiario {
-            color: rgb(44, 47, 48);
+            color: rgb(255, 255, 255);
+            text-shadow: 1px 2px 2px rgba(255,255,255,0.6);
         }
 
-        #script-menuDiario {
+        .bkgMD {
+            /*
             background:
                 calc( .9*32px) calc( .9*32px)/calc(2*32px) calc(2*32px) conic-gradient(at 20% 20%,#0000 75%,#d5ffd5 0),
                 calc(-.1*32px) calc(-.1*32px)/calc(2*32px) calc(2*32px) conic-gradient(at 20% 20%,#0000 75%,#caf6ca 0),
                 calc( .7*32px) calc( .7*32px)/calc(2*32px) calc(2*32px) conic-gradient(at 40% 40%,#0000 75%,#FFFBF2 0),
                 calc(-.3*32px) calc(-.3*32px)/calc(2*32px) calc(2*32px) conic-gradient(at 40% 40%,#0000 75%,#FFFBF2 0),
                 conic-gradient(from 90deg at 20% 20%,#e0ede0 25%,#FFFBF2 0) 0 0/32px 32px;
+            */
+                
+                background-image: url('./img/MDbkg-1.jpg') !important;
 
         }
 
@@ -64,7 +69,6 @@
         .titDomicilio_btn a {
             font-weight: bold;
             color: #170000;
-
         }
 
         .subCategorias {
@@ -75,16 +79,21 @@
             justify-content: center;
             font-weight: bolder;
             margin-bottom: 5%;
-            background-color: rgb(52, 17, 17);
+            background-color: rgba(102, 75, 25, 0.908);
             height: 2.2rem !important;
         }
         .reservation, .page-header, .offer{
-            background: linear-gradient(rgba(51, 33, 29, 0), rgba(51, 33, 29, 0)),url('./img/bg1.jpg') !important;
+            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bg1.jpg') !important;
         }
         .text-primary {
             color: #2a1906a7 !important;
         }
-
+        .textura {
+            background-image: url('./img/bg1.jpg');
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
        
     </style>
 
@@ -107,6 +116,12 @@
                     <a href="principal.html" class="nav-item nav-link">Servicios y cathering</a>
                 </div>
             </div>
+
+            <div class="RRSS">
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/elruedorestobar"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.instagram.com/restoruedo/"><i class="fab fa-instagram"></i></a>
+            </div>
+            </div>
         </nav>
     </div>
     <!-- Navbar End -->
@@ -118,7 +133,7 @@
         </div>
     </div>
 
-    <div class="container-fluid pt-2 ">
+    <div class="container-fluid pt-2 bkgMD">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6" id="script-menuDiario"></div>
@@ -131,7 +146,7 @@
     <!-- MENU DEL DIA End -->
 
     <!-- Desayunos Start -->
-    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-2 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">DESAYUNOS</h1>
         </div>
@@ -147,7 +162,7 @@
     <!-- Desayunos End -->
 
     <!-- CAFETERIA Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">CAFETERÍA</h1>
         </div>
@@ -173,7 +188,7 @@
     <!-- CAFETERIA End -->
 
     <!-- PANIFICADOS Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-2 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">PANIFICADOS</h1>
         </div>
@@ -189,7 +204,7 @@
     <!-- PANIFICADOS End -->
 
     <!-- SANDWICHES Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">SANDWICHES</h1>
         </div>
@@ -221,9 +236,9 @@
     <!-- SANDWICHES End -->
 
     <!-- NUESTRA COCINA Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-2 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
-            <h1 class="display-3 text-primary mt-3">NUESTRA COCINA</h1>
+            <h1 class="textura display-3 text-primary mt-3">NUESTRA COCINA</h1>
         </div>
     </div>
 
@@ -244,7 +259,7 @@
     <!-- NUESTRA COCINA End -->
 
     <!-- PASTAS Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">PASTAS</h1>
         </div>
@@ -260,7 +275,7 @@
     <!-- PASTAS End -->
 
     <!-- PIZZAS Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">PIZZAS</h1>
         </div>
@@ -276,7 +291,7 @@
     <!-- PIZZAS End -->
 
     <!-- TABLAS Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">TABLAS</h1>
         </div>
@@ -292,7 +307,7 @@
     <!-- TABLAS End -->
 
     <!-- BEBIDAS Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">BEBIDAS</h1>
         </div>
@@ -314,7 +329,7 @@
     <!-- BEBIDAS End -->
 
     <!-- POSTRES Start -->
-    <div class="offer container-fluid my-5 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">POSTRES</h1>
         </div>
@@ -463,7 +478,6 @@
 
             for (var i = 2; i < xlData.length && xlData[i][16] !== undefined; i++) {
                 var row = xlData[i];
-
                 var desayunoHTML = `
                     <div class="row align-items-center mb-5">
                         <div class="col-12 col-sm-9">
@@ -867,12 +881,19 @@
 
             for (var i = 2; i < xlData.length && xlData[i][19] !== undefined; i++) {
                 var row = xlData[i];
+                
+                if (row[20] != undefined) {
+                    var descr = `<p class="m-0">${row[20]}</p>`;
+                } else {
+                    var descr = "";
+                }
 
                 var itemHTML = `
                     <div class="row align-items-center mb-5">
                         <div class="col-12 col-sm-9">
                             <h4>${row[19]}</h4>
-                            <h5 class="menu-price">$${row[20]}</h5>
+                            ${descr}
+                            <h5 class="menu-price">$${row[21]}</h5>
                         </div>
                     </div>
                     `;
