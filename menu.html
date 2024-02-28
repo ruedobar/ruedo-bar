@@ -37,9 +37,8 @@
         }
 
         .bkgMD {
-            /*background-image: url('./img/MDbkg-1.jpg') !important;*/
             background-image: url('./img/MDbkg-2.png') !important;
-
+            background-size: cover;
         }
 
         .titDomicilio {
@@ -52,15 +51,16 @@
         .titDomicilio_btn {
             width: 100%;
             text-align: center;
-            height: 50px;
-            background-color: chocolate;
+            height: 80px;
+            background-color: #f32f13;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .titDomicilio_btn a {
             font-weight: bold;
-            color: #170000;
+            color: #ffffff;
+            font-size: 1.5rem;
         }
 
         .subCategorias {
@@ -85,6 +85,21 @@
             color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
+        }
+        .bkgMD-img {
+            width: 100vw;
+            object-fit: fill;
+        }
+        .holder-MD {
+            position: relative !important;
+            padding: 0 0 0 0 !important;
+        }
+        .listaMD {
+            position: absolute !important;
+            top: 20%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
         }
        
     </style>
@@ -118,22 +133,24 @@
     <!-- Navbar End -->
 
     <!-- MENU DEL DIA Start -->
+    <!--
     <div class="container-fluid page-header position-relative">
         <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 100px">
             <h1 class="display-4 mt-0 mt-lg-5 text-primary text-uppercase">MENÚ DEL DÍA</h1>
         </div>
     </div>
+    -->
 
-    <div class="container-fluid pt-2 bkgMD">
-        <div class="container">
+    <div class="container-fluid pt-2 holder-MD">
+        <img class="bkgMD-img" src="img/MDbkg-2.png" alt="" srcset="">
+        <div class="container listaMD">
             <div class="row">
                 <div class="col-lg-6" id="script-menuDiario"></div>
             </div>
         </div>
     </div>
 
-    <div class="titDomicilio">Envíos a domicilio!</div>
-    <div class="titDomicilio_btn"><a href="https://wa.me/5493412148540" target="_blank">>>>Hacé tu pedido acá<<<</a></div>
+    <div class="titDomicilio_btn"><a href="https://wa.me/5493412148540" target="_blank">Envíos a domicilio!<br>>>>Hacé tu pedido acá<<<</a></div>
     <!-- MENU DEL DIA End -->
 
     <!-- Desayunos Start -->
@@ -450,14 +467,8 @@
                 var menuDiarioHTML = `
                 <div style="justify-content: center; margin-bottom: 1.5rem !important;" class="row align-items-center mt-5 mb-5" id="head-${i}-MD">
                     <h5 class="mb-0">
-                        <button style="text-decoration: none !important;" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-${i}-MD" aria-expanded="false" aria-controls="collapse-${i}-MD">
-                            <h4 class="nombreMenuDiario">${row[1]}</h4>
-                        </button>
+                        <h4 class="nombreMenuDiario">${row[1]}</h4>
                     </h5>
-                </div>
-
-                <div id="collapse-${i}-MD" class="collapse" aria-labelledby="head-${i}-MD" data-parent="#accordion">
-                    <h5 class="menu-price menu-price2">$${row[2]}</h5>
                 </div>
                 `;
                 listaMenuDiario.innerHTML += menuDiarioHTML;
