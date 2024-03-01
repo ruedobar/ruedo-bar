@@ -99,10 +99,17 @@
         }
         .listaMD {
             position: absolute !important;
-            top: 20%;
+            top: 20vh;
             left: 0;
             right: 0;
             margin: 0 auto;
+        }
+        .MenuDiario-lista {
+            display: flex;
+            flex-direction: column;
+            height: 20rem;
+            justify-content: space-evenly;
+            align-items: center;
         }
        
     </style>
@@ -147,9 +154,7 @@
     <div class="container-fluid pt-2 holder-MD">
         <img class="bkgMD-img" src="img/MDbkg-2.png" alt="" srcset="">
         <div class="container listaMD">
-            <div class="row">
-                <div class="col-lg-6" id="script-menuDiario"></div>
-            </div>
+            <div class="col-lg-6 MenuDiario-lista" id="script-menuDiario"></div>
         </div>
     </div>
     <div class="titDomicilio">Envíos a domicilio!</div>    
@@ -467,13 +472,7 @@
             for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
                 var row = xlData[i];
 
-                var menuDiarioHTML = `
-                <div style="justify-content: center; margin-bottom: 1.5rem !important;" class="row align-items-center mt-5 mb-5" id="head-${i}-MD">
-                    <h5 class="mb-0">
-                        <h4 class="nombreMenuDiario">${row[1]}</h4>
-                    </h5>
-                </div>
-                `;
+                var menuDiarioHTML = `<h4 class="nombreMenuDiario">${row[1]}</h4>`;
                 listaMenuDiario.innerHTML += menuDiarioHTML;
             }
         };

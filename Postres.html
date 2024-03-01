@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>El Ruedo - Resto Bar</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="El Ruedo" name="keywords">
+    <meta content="El Ruedo - Resto Bar" name="description">
+
+    <!-- Favicon -->
+    <link href="img/ruedoIco.jpg" rel="icon">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+
+    <style>
+        .menu-price2 {
+            position: inherit !important;
+            width: 100% !important;
+        }
+
+        .nombreMenuDiario {
+            color: rgb(255, 255, 255);
+            text-shadow: 1px 2px 2px rgba(255,255,255,0.6);
+        }
+
+        .bkgMD {
+            background-image: url('./img/MDbkg-2.png') !important;
+            background-size: cover;
+        }
+
+        .titDomicilio {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: black;
+            color: #e0ede0;
+        }
+        
+        .titDomicilio_btn {
+            width: 100%;
+            text-align: center;
+            height: 80px;
+            background-color: #f32f13;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15%;
+        }
+        .titDomicilio_btn a {
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 1.5rem;
+        }
+
+        .subCategorias {
+            color: #e0ede0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bolder;
+            margin-bottom: 5%;
+            background-color: rgba(102, 75, 25, 0.908);
+            height: 2.2rem !important;
+        }
+        .reservation, .page-header, .offer{
+            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bg1.jpg') !important;
+        }
+        .text-primary {
+            color: #2a1906a7 !important;
+        }
+        .textura {
+            background-image: url('./img/bg1.jpg');
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .bkgMD-img {
+            width: 100vw;
+            object-fit: fill;
+        }
+        .holder-MD {
+            position: relative !important;
+            padding: 0 0 0 0 !important;
+        }
+        .listaMD {
+            position: absolute !important;
+            top: 20vh;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+        .MenuDiario-lista {
+            display: flex;
+            flex-direction: column;
+            height: 20rem;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+       
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.0/dist/xlsx.full.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="MenuDiario.html" class="nav-item nav-link">Menú del día</a>
+                    <a href="Promociones.html" class="nav-item nav-link">Promociones</a>
+                    <a href="Desayunos.html" class="nav-item nav-link">Desayunos</a>
+                    <a href="NuestraCocina.html" class="nav-item nav-link">Nuestra cocina</a>
+                    <a href="Bebidas.html" class="nav-item nav-link">Bebidas</a>
+                    <a href="Postres.html" class="nav-item nav-link">Postres</a>
+
+                </div>
+            </div>
+
+            <div class="RRSS">
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/elruedorestobar"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.instagram.com/restoruedo/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- POSTRES Start -->
+    <div class="offer container-fluid py-3 text-center position-relative overlay-bottom">
+        <div class="container py-3">
+            <h1 class="display-3 text-primary ">POSTRES</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" id="script-postres"></div>
+
+                <div class="subCategorias col-lg-6">LICUADOS</div>
+                <div class="col-lg-6" id="script-licuados"></div>
+            </div>
+        </div>
+    </div>
+    <!-- POSTRES End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">VISITANOS!</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Rioja 798 (Esquina Rioja y Laprida)</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+54 341 421-5566</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">NUESTRAS REDES SOCIALES</h4>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/elruedorestobar"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.instagram.com/restoruedo/"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="https://wa.me/5493412148540"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">HORARIOS</h4>
+                <div>
+                    <h6 class="text-white text-uppercase">Lunes - Viernes</h6>
+                    <p>7:00 - 19:00</p>
+                    <h6 class="text-white text-uppercase">Sábados</h6>
+                    <p>7:00 - 16:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        //XSLS
+        function downloadFile(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'blob';
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    callback(null, xhr.response);
+                } else {
+                    callback(new Error('Failed to download file'));
+                }
+            };
+            xhr.send();
+        }
+
+        function handleFile(blob) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var data = new Uint8Array(e.target.result);
+                var workbook = XLSX.read(data, {type: 'array'});
+                var sheet_name_list = workbook.SheetNames;
+                
+                insertarLicuados(workbook, sheet_name_list);
+                insertarPostres(workbook, sheet_name_list);
+                
+            };
+            reader.readAsArrayBuffer(blob);
+        }
+        
+        function insertarLicuados(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaLicuados = document.getElementById('script-licuados');
+
+            for (var i = 2; i < xlData.length && xlData[i][14] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[14]}</h4>
+                            <h5 class="menu-price">$${row[15]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaLicuados.innerHTML += itemHTML;
+            }
+        };
+        function insertarPostres(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
+            let listaPostres = document.getElementById('script-postres');
+
+            for (var i = 2; i < xlData.length && xlData[i][19] !== undefined; i++) {
+                var row = xlData[i];
+                
+                if (row[20] != undefined) {
+                    var descr = `<p class="m-0">${row[20]}</p>`;
+                } else {
+                    var descr = "";
+                }
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[19]}</h4>
+                            ${descr}
+                            <h5 class="menu-price">$${row[21]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaPostres.innerHTML += itemHTML;
+            }
+        };
+
+        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
+        downloadFile(fileUrl, function(err, blob) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            handleFile(blob);
+        });
+
+    </script>
+
+
+</body>
+
+</html>
