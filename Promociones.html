@@ -147,6 +147,7 @@
 
     <script>
         //XSLS
+        /*
         function downloadFile(url, callback) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
@@ -168,7 +169,7 @@
                 var workbook = XLSX.read(data, {type: 'array'});
                 var sheet_name_list = workbook.SheetNames;
                 
-                insertarPromociones(workbook, sheet_name_list);
+                //insertarPromociones(workbook, sheet_name_list);
 
                 
             };
@@ -194,6 +195,7 @@
                     listaPromociones.innerHTML += itemHTML;
             }
         }
+        
 
         var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
         downloadFile(fileUrl, function(err, blob) {
@@ -203,7 +205,7 @@
             }
             handleFile(blob);
         });
-
+    */
     </script>
 
 
