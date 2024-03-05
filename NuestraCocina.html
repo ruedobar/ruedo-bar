@@ -84,7 +84,23 @@
     <!-- Navbar End -->
 
     <!-- NUESTRA COCINA Start -->
-    <div class="offer container-fluid py-3 text-center position-relative overlay-bottom">
+    <div class="offer container-fluid  py-3 text-center position-relative overlay-bottom">
+        <div class="container py-3">
+            <h1 class="display-3 text-primary mt-3">ENSALADAS</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" id="script-ensaladas"></div>
+            </div>
+        </div>
+    </div>
+    <!-- NUESTRA COCINA End -->
+
+    <!-- NUESTRA COCINA Start -->
+    <div class="offer container-fluid py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="textura display-3 text-primary ">NUESTRA COCINA</h1>
         </div>
@@ -262,6 +278,8 @@
                 var workbook = XLSX.read(data, {type: 'array'});
                 var sheet_name_list = workbook.SheetNames;
                 
+
+                insertarEnsaladas(workbook, sheet_name_list);
                 insertarSimples(workbook, sheet_name_list);
                 insertarTriples(workbook, sheet_name_list);
                 insertarEspeciales(workbook, sheet_name_list);
@@ -282,6 +300,26 @@
         
 
         //C2
+        function insertarEnsaladas(workbook, sheet_name_list) {
+            //script-simples
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]], {header: 1});
+            let listaEnsaladas = document.getElementById('script-ensaladas');
+
+            for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[4]}</h4>
+                                <p class="m-0">${row[5]}</p>
+                                <h5 class="menu-price">$${row[6]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaEnsaladas.innerHTML += itemHTML;
+            }
+        };
         function insertarSimples(workbook, sheet_name_list) {
             //script-simples
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});

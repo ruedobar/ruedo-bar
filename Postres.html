@@ -171,6 +171,8 @@
             };
             xhr.send();
         }
+       
+
 
         function handleFile(blob) {
             var reader = new FileReader();
@@ -180,13 +182,24 @@
                 var sheet_name_list = workbook.SheetNames;
                 
                 insertarLicuados(workbook, sheet_name_list);
+
                 insertarPostres(workbook, sheet_name_list);
                 
             };
             reader.readAsArrayBuffer(blob);
         }
-        
+        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
+        downloadFile(fileUrl, function(err, blob) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            handleFile(blob);
+        });
         function insertarLicuados(workbook, sheet_name_list) {
+
+
+
             let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
             let listaLicuados = document.getElementById('script-licuados');
 
@@ -230,14 +243,7 @@
             }
         };
 
-        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
-        downloadFile(fileUrl, function(err, blob) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            handleFile(blob);
-        });
+
 
     </script>
 
