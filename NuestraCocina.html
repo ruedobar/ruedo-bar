@@ -41,11 +41,32 @@
             background-color: rgba(102, 75, 25, 0.908);
             height: 2.2rem !important;
         }
-        .reservation, .page-header, .offer{
-            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bg1.jpg') !important;
+        .banner-ensalada {
+            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerEnsalada.jpg') !important;
+            background-size: cover !important;
+        }
+        .banner-pizza {
+            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerPizza.jpg') !important;
+            background-size: cover !important;
+        }
+        .banner-sanguche {
+            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerSanguche.jpg') !important;
+            background-size: cover !important;
+        }
+        .banner-pasta {
+            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerPasta.jpg') !important;
+            background-size: cover !important;
+        }
+        .banner-tablas {
+            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerTablas.jpg') !important;
+            background-size: cover !important;
+        }
+        .banner-nuestracocina {
+            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerNuestraCocina.jpg') !important;
+            background-size: cover !important;
         }
         .text-primary {
-            color: #2a1906a7 !important;
+            color: #ffffff !important;
         }
         .textura {
             background-image: url('./img/bg1.jpg');
@@ -67,7 +88,7 @@
                     <a href="./MenuDiario.html" class="nav-item nav-link">Menú del día</a>
                     <a href="./Promociones.html" class="nav-item nav-link">Promociones</a>
                     <a href="./Desayunos.html" class="nav-item nav-link">Desayunos</a>
-                    <a href="./NuestraCocina.html" class="nav-item nav-link">Nuestra cocina</a>
+                    <a href="./NuestraCocina.html" class="nav-item nav-link">Cocina y ensaladas</a>
                     <a href="./Bebidas.html" class="nav-item nav-link">Bebidas</a>
                     <a href="./Postres.html" class="nav-item nav-link">Postres</a>
                     <a href="./Catering.html" class="nav-item nav-link">Servicios de catering</a>
@@ -82,25 +103,9 @@
         </nav>
     </div>
     <!-- Navbar End -->
-
+    
     <!-- NUESTRA COCINA Start -->
-    <div class="offer container-fluid  py-3 text-center position-relative overlay-bottom">
-        <div class="container py-3">
-            <h1 class="display-3 text-primary mt-3">ENSALADAS</h1>
-        </div>
-    </div>
-
-    <div class="container-fluid pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6" id="script-ensaladas"></div>
-            </div>
-        </div>
-    </div>
-    <!-- NUESTRA COCINA End -->
-
-    <!-- NUESTRA COCINA Start -->
-    <div class="offer container-fluid py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="banner-nuestracocina container-fluid py-3 text-center position-relative  overlay-bottom">
         <div class="container py-3">
             <h1 class="textura display-3 text-primary ">NUESTRA COCINA</h1>
         </div>
@@ -109,6 +114,8 @@
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="row">
+                <div class="col-lg-6" id="script-nuestraCocina"></div>
+
                 <div class="subCategorias col-lg-6"> EMPANADAS </div>
                 <div class="col-lg-6" id="script-empanadas"></div>
 
@@ -122,8 +129,24 @@
     </div>
     <!-- NUESTRA COCINA End -->
 
+    <!-- ENSALADAS Start -->
+    <div class="container-fluid  py-3 text-center position-relative overlay-bottom overlay-top banner-ensalada">
+        <div class="container py-3">
+            <h1 class="display-3 text-primary mt-3">ENSALADAS</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" id="script-ensaladas"></div>
+            </div>
+        </div>
+    </div>
+    <!-- ENSALADAS End -->
+
     <!-- SANDWICHES Start -->
-    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="banner-sanguche container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">SANDWICHES</h1>
         </div>
@@ -157,7 +180,7 @@
 
 
     <!-- PASTAS Start -->
-    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="banner-pasta container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">PASTAS</h1>
         </div>
@@ -173,7 +196,7 @@
     <!-- PASTAS End -->
 
     <!-- PIZZAS Start -->
-    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="banner-pizza container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">PIZZAS</h1>
         </div>
@@ -189,7 +212,7 @@
     <!-- PIZZAS End -->
 
     <!-- TABLAS Start -->
-    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="banner-tablas container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">TABLAS</h1>
         </div>
@@ -278,7 +301,7 @@
                 var workbook = XLSX.read(data, {type: 'array'});
                 var sheet_name_list = workbook.SheetNames;
                 
-
+                insertarNuestraCocina(workbook, sheet_name_list);
                 insertarEnsaladas(workbook, sheet_name_list);
                 insertarSimples(workbook, sheet_name_list);
                 insertarTriples(workbook, sheet_name_list);
@@ -300,12 +323,32 @@
         
 
         //C2
+        function insertarNuestraCocina(workbook, sheet_name_list) {
+            //script-simples
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
+            let listaNuestraCocina = document.getElementById('script-nuestraCocina');
+
+            for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[1]}</h4>
+                                <p class="m-0">${row[2]}</p>
+                                <h5 class="menu-price">$${row[3]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaNuestraCocina.innerHTML += itemHTML;
+            }
+        };
         function insertarEnsaladas(workbook, sheet_name_list) {
             //script-simples
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]], {header: 1});
             let listaEnsaladas = document.getElementById('script-ensaladas');
 
-            for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][4] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
@@ -462,11 +505,11 @@
             let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
             let listaPicar = document.getElementById('script-picar');
 
-            for (var i = 2; i < xlData.length && xlData[i][11] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][13] !== undefined; i++) {
                 var row = xlData[i];
 
-                if (row[12] != undefined) {
-                    var descr = `<p class="m-0">${row[12]}</p>`;
+                if (row[14] != undefined) {
+                    var descr = `<p class="m-0">${row[14]}</p>`;
                 } else {
                     var descr = "";
                 }
@@ -474,9 +517,9 @@
                 var itemHTML = `
                     <div class="row align-items-center mb-5">
                         <div class="col-12 col-sm-9">
-                            <h4>${row[11]}</h4>
+                            <h4>${row[13]}</h4>
                             <p class="m-0">${descr}</p>
-                            <h5 class="menu-price">$${row[13]}</h5>
+                            <h5 class="menu-price">$${row[15]}</h5>
                         </div>
                     </div>
                     `;
@@ -506,33 +549,40 @@
             let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
             let listaPastas = document.getElementById('script-pastas');
 
-            for (var i = 2; i < xlData.length && xlData[i][4] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][5] !== undefined; i++) {
                 var row = xlData[i];
+
+                if (row[6] != undefined) {
+                    var descr = `<p class="m-0">${row[6]}</p>`;
+                } else {
+                    var descr = "";
+                }
 
                 var itemHTML = `
                     <div class="row align-items-center mb-5">
                         <div class="col-12 col-sm-9">
-                            <h4>${row[4]}</h4>
-                            <h5 class="menu-price">$${row[5]}</h5>
+                            <h4>${row[5]}</h4>
+                            <p class="m-0">${descr}</p>
+                            <h5 class="menu-price">$${row[7]}</h5>
                         </div>
                     </div>
                     `;
                     listaPastas.innerHTML += itemHTML;
-            }
-        };
+            };
+        }
         function insertarPizzas(workbook, sheet_name_list) {
             let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
             let listaPizzas = document.getElementById('script-pizzas');
 
-            for (var i = 2; i < xlData.length && xlData[i][7] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][9] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
                     <div class="row align-items-center mb-5">
                         <div class="col-12 col-sm-9">
-                            <h4>${row[7]}</h4>
-                            <p class="m-0">${row[8]}</p>
-                            <h5 class="menu-price">$${row[9]}</h5>
+                            <h4>${row[9]}</h4>
+                            <p class="m-0">${row[10]}</p>
+                            <h5 class="menu-price">$${row[11]}</h5>
                         </div>
                     </div>
                     `;
@@ -543,15 +593,15 @@
             let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
             let listaTablas = document.getElementById('script-tablas');
 
-            for (var i = 2; i < xlData.length && xlData[i][15] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][17] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
                     <div class="row align-items-center mb-5">
                         <div class="col-12 col-sm-9">
-                            <h4>${row[15]}</h4>
-                            <p class="m-0">${row[16]}</p>
-                            <h5 class="menu-price">$${row[17]}</h5>
+                            <h4>${row[17]}</h4>
+                            <p class="m-0">${row[18]}</p>
+                            <h5 class="menu-price">$${row[19]}</h5>
                         </div>
                     </div>
                     `;

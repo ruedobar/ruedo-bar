@@ -34,38 +34,47 @@
 
 </head>
 <style>
-            .subCategorias {
-            color: #e0ede0;
-            width: 100%;
-            display: flex;
-            align-items: center;
+    .subCategorias {
+        color: #e0ede0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
+        margin-bottom: 5%;
+        background-color: rgba(102, 75, 25, 0.908);
+        height: 2.2rem !important;
+    }
+    .banner-desayunos {
+        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerDesayunos.jpg') !important;
+        background-size: cover !important;
+    }
+    .banner-cafeteria {
+        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerCafeteria.jpg') !important;
+        background-size: cover !important;
+    }
+    .banner-panificados {
+        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerPanificados.jpg') !important;
+        background-size: cover !important;
+    }
+    .text-primary {
+        color: #2a1906a7 !important;
+    }
+    .textura {
+        background-image: url('./img/bg1.jpg');
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+    @media only screen and (min-width: 600px) {
+        .container-fluid.nav-bar, .nav-bar.container-sm, .nav-bar.container-md, .nav-bar.container-lg, .nav-bar.container-xl, .nav-bar {
+            position: relative;
+            background-color: #3A3A3A;
+        }
+        .rowFooter {
             justify-content: center;
-            font-weight: bolder;
-            margin-bottom: 5%;
-            background-color: rgba(102, 75, 25, 0.908);
-            height: 2.2rem !important;
         }
-        .reservation, .page-header, .offer{
-            background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bg1.jpg') !important;
-        }
-        .text-primary {
-            color: #2a1906a7 !important;
-        }
-        .textura {
-            background-image: url('./img/bg1.jpg');
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-        @media only screen and (min-width: 600px) {
-            .container-fluid.nav-bar, .nav-bar.container-sm, .nav-bar.container-md, .nav-bar.container-lg, .nav-bar.container-xl, .nav-bar {
-                position: relative;
-                background-color: #3A3A3A;
-            }
-            .rowFooter {
-                justify-content: center;
-            }
-        }
+    }
 
 </style>
 <body>
@@ -81,7 +90,7 @@
                     <a href="./MenuDiario.html" class="nav-item nav-link">Menú del día</a>
                     <a href="./Promociones.html" class="nav-item nav-link">Promociones</a>
                     <a href="./Desayunos.html" class="nav-item nav-link">Desayunos</a>
-                    <a href="./NuestraCocina.html" class="nav-item nav-link">Nuestra cocina</a>
+                    <a href="./NuestraCocina.html" class="nav-item nav-link">Cocina y ensaladas</a>
                     <a href="./Bebidas.html" class="nav-item nav-link">Bebidas</a>
                     <a href="./Postres.html" class="nav-item nav-link">Postres</a>
                     <a href="./Catering.html" class="nav-item nav-link">Servicios de catering</a>
@@ -98,7 +107,7 @@
     <!-- Navbar End -->
 
     <!-- Desayunos Start -->
-    <div class="offer container-fluid py-3 text-center position-relative overlay-bottom">
+    <div class="banner-desayunos container-fluid py-3 text-center position-relative overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary">DESAYUNOS</h1>
         </div>
@@ -114,7 +123,7 @@
     <!-- Desayunos End -->
 
     <!-- CAFETERIA Start -->
-    <div class="offer container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="banner-cafeteria container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">CAFETERÍA</h1>
         </div>
@@ -140,7 +149,7 @@
     <!-- CAFETERIA End -->
 
     <!-- PANIFICADOS Start -->
-    <div class="offer container-fluid my-2 py-3 text-center position-relative overlay-top overlay-bottom">
+    <div class="banner-panificados container-fluid my-2 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
             <h1 class="display-3 text-primary mt-3">PANIFICADOS</h1>
         </div>
