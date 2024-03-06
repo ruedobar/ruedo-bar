@@ -46,7 +46,7 @@
         height: 2.2rem !important;
     }
     .banner-desayunos {
-        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerDesayunos.jpg') !important;
+        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerDesayunos.webp') !important;
         background-size: cover !important;
     }
     .banner-cafeteria {
@@ -218,6 +218,15 @@
 
     <script>
         //XSLS
+        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
+        downloadFile(fileUrl, function(err, blob) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            handleFile(blob);
+        });
+
         function downloadFile(url, callback) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
@@ -226,7 +235,7 @@
                 if (xhr.status === 200) {
                     callback(null, xhr.response);
                 } else {
-                    callback(new Error('Failed to download file'));
+                    console.log ('Failed to download file');
                 }
             };
             xhr.send();
@@ -250,7 +259,6 @@
         }
         
         //C1
-
         function insertarDesayunos(workbook, sheet_name_list) {
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
             let listaDesayunos = document.getElementById('script-desayunos');
@@ -360,15 +368,6 @@
                         listaPanificado.innerHTML += itemHTML;
             }
         };
-
-        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
-        downloadFile(fileUrl, function(err, blob) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            handleFile(blob);
-        });
 
     </script>
 

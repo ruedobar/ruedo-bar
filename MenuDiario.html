@@ -168,7 +168,7 @@
 
     <!-- MENU DEL DIA Start -->
     <div class="container-fluid pt-2 holder-MD">
-        <img class="bkgMD-img" src="img/MDbkg-2.png" alt="" srcset="">
+        <img class="bkgMD-img" src="img/MDbkg-2.jpg" alt="" srcset="">
         <div class="container listaMD">
             <div class="col-lg-6 MenuDiario-lista" id="script-menuDiario"></div>
         </div>
@@ -196,6 +196,15 @@
 
     <script>
         //XSLS
+        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
+        downloadFile(fileUrl, function(err, blob) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            handleFile(blob);
+        });
+
         function downloadFile(url, callback) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
@@ -204,7 +213,7 @@
                 if (xhr.status === 200) {
                     callback(null, xhr.response);
                 } else {
-                    callback(new Error('Failed to download file'));
+                    console.log ('Failed to download file');
                 }
             };
             xhr.send();
@@ -236,14 +245,7 @@
             }
         };
  
-        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
-        downloadFile(fileUrl, function(err, blob) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            handleFile(blob);
-        });
+
 
     </script>
 

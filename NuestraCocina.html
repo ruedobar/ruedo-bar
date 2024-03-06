@@ -281,6 +281,15 @@
 
     <script>
         //XSLS
+        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
+        downloadFile(fileUrl, function(err, blob) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            handleFile(blob);
+        });
+
         function downloadFile(url, callback) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
@@ -289,7 +298,7 @@
                 if (xhr.status === 200) {
                     callback(null, xhr.response);
                 } else {
-                    callback(new Error('Failed to download file'));
+                    console.log ('Failed to download file');
                 }
             };
             xhr.send();
@@ -610,14 +619,7 @@
             }
         };
 
-        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
-        downloadFile(fileUrl, function(err, blob) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            handleFile(blob);
-        });
+
 
     </script>
 

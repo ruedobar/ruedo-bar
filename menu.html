@@ -421,7 +421,7 @@
                 if (xhr.status === 200) {
                     callback(null, xhr.response);
                 } else {
-                    callback(new Error('Failed to download file'));
+                    console.log ('Failed to download file');
                 }
             };
             xhr.send();
