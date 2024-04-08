@@ -99,6 +99,8 @@
                 <div class="subCategorias col-lg-6"> CERVEZAS </div>
                 <div class="col-lg-6" id="script-cervezas"></div>
 
+                <div class="subCategorias col-lg-6">LICUADOS</div>
+                <div class="col-lg-6" id="script-licuados"></div>
             </div>
         </div>
     </div>
@@ -180,6 +182,7 @@
                 
                 insertarBebidas(workbook, sheet_name_list);
                 insertarCervezas(workbook, sheet_name_list);
+                insertarLicuados(workbook, sheet_name_list);
             };
             reader.readAsArrayBuffer(blob);
         }
@@ -200,6 +203,26 @@
                     </div>
                     `;
                     listaBebidas.innerHTML += itemHTML;
+            }
+        };
+
+        function insertarLicuados(workbook, sheet_name_list) {
+
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaLicuados = document.getElementById('script-licuados');
+
+            for (var i = 2; i < xlData.length && xlData[i][14] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[14]}</h4>
+                            <h5 class="menu-price">$${row[15]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaLicuados.innerHTML += itemHTML;
             }
         };
 
