@@ -24,15 +24,10 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.min.css" rel="stylesheet">
-
-    <style>
-       
-    </style>
-
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.0/dist/xlsx.full.min.js"></script>
 
-
 </head>
+
 <style>
     .subCategorias {
         color: #e0ede0;
@@ -45,39 +40,28 @@
         background-color: rgba(102, 75, 25, 0.908);
         height: 2.2rem !important;
     }
-    .banner-desayunos {
-        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerDesayunos.webp') !important;
-        background-size: cover !important;
-    }
-    .banner-cafeteria {
-        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerCafeteria.jpg') !important;
-        background-size: cover !important;
-    }
-    .banner-panificados {
-        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerPanificados.jpg') !important;
+    .reservation, .page-header, .offer{
+        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerBebida.jpeg') !important;
         background-size: cover !important;
     }
     .text-primary {
         color: #ffffff !important;
         -webkit-text-stroke: 1px black;
     }
-    .textura {
-        background-image: url('./img/bg1.jpg');
-        color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
+    .banner-pizza {
+        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerPizza.jpg') !important;
+        background-size: cover !important;
     }
-    @media only screen and (min-width: 600px) {
-        .container-fluid.nav-bar, .nav-bar.container-sm, .nav-bar.container-md, .nav-bar.container-lg, .nav-bar.container-xl, .nav-bar {
-            position: relative;
-            background-color: #3A3A3A;
-        }
-        .rowFooter {
-            justify-content: center;
-        }
+    .banner-sanguche {
+        background: linear-gradient(rgba(0, 0, 0, 0.031), rgba(0, 0, 0, 0.071)),url('./img/bannerSanguche.webp') !important;
+        background-size: cover !important;
     }
-
+    .footer {
+        background: none;
+        background-color: #1a1a1a !important;
+    }
 </style>
+
 <body>
     <!-- Navbar Start -->
     <div class="container-fluid p-0 nav-bar">
@@ -107,66 +91,57 @@
     </div>
     <!-- Navbar End -->
 
-    <!-- Desayunos Start -->
-    <div class="banner-desayunos container-fluid py-3 text-center position-relative overlay-bottom">
+    <!-- PIZZAS Start -->
+    <div class="banner-pizza container-fluid py-3 text-center position-relative overlay-bottom">
         <div class="container py-3">
-            <h1 class="display-3 text-primary">DESAYUNOS</h1>
+            <h1 class="display-3 text-primary">PIZZAS</h1>
+            
         </div>
     </div>
-
+    <h6 class="text-center">Todas las pizzas son a la piedra</h6>
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6" id="script-desayunos"></div>
+                <div class="col-lg-6" id="script-pizzas"></div>
             </div>
         </div>
     </div>
-    <!-- Desayunos End -->
+    <!-- PIZZAS End -->
 
-    <!-- CAFETERIA Start -->
-    <div class="banner-cafeteria container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
+    <!-- SANDWICHES Start -->
+    <div class="banner-sanguche container-fluid my-3 py-3 text-center position-relative overlay-top overlay-bottom">
         <div class="container py-3">
-            <h1 class="display-3 text-primary mt-3">CAFETERÍA</h1>
+            <h1 class="display-3 text-primary mt-3">SANDWICHES</h1>
         </div>
     </div>
 
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="row">
-                <div class="subCategorias col-lg-6"> CAFÉ </div>
-                <div class="col-lg-6" id="script-cafeteria-cafe"></div>
-
-                <div class="subCategorias col-lg-6"> TÉ </div>
-                <div class="col-lg-6" id="script-cafeteria-te"></div>
+                <div class="subCategorias col-lg-6"> SIMPLES </div>
+                <div class="col-lg-6" id="script-simples"></div>
                 
-                <div class="subCategorias col-lg-6"> MATE COCIDO </div>
-                <div class="col-lg-6" id="script-cafeteria-mateCocido"></div>
+                <div class="subCategorias col-lg-6"> TRIPLES </div>
+                <div class="col-lg-6" id="script-triples"></div>
                 
-                <div class="subCategorias col-lg-6"> LACTEOS </div>
-                <div class="col-lg-6" id="script-cafeteria-lacteo"></div>
+                <div class="subCategorias col-lg-6"> ESPECIALES </div>
+                <div class="col-lg-6" id="script-especiales"></div>
+                
+                <div class="subCategorias col-lg-6">CARLITOS o TOSTADOS</div>
+                <div class="col-lg-6" id="script-tostados"></div>
+                
+                <div class="subCategorias col-lg-6"> HAMBURGUESAS </div>
+                <div class="col-lg-6" id="script-hamburguesas"></div>
+                
+                <div class="subCategorias col-lg-6"> LOMITOS </div>
+                <div class="col-lg-6" id="script-lomitos"></div>
             </div>
         </div>
     </div>
-    <!-- CAFETERIA End -->
-
-    <!-- PANIFICADOS Start -->
-    <div class="banner-panificados container-fluid my-2 py-3 text-center position-relative overlay-top overlay-bottom">
-        <div class="container py-3">
-            <h1 class="display-3 text-primary mt-3">PANIFICADOS</h1>
-        </div>
-    </div>
-
-    <div class="container-fluid pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6" id="script-panificados"></div>
-            </div>
-        </div>
-    </div>
-    <!-- PANIFICADOS End -->
+    <!-- SANDWICHES End -->
 
     <!-- Footer Start -->
-    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+    <div class="container-fluid footer text-white pt-5 px-0 position-relative">
         <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">VISITANOS!</h4>
@@ -218,15 +193,6 @@
 
     <script>
         //XSLS
-        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
-        downloadFile(fileUrl, function(err, blob) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            handleFile(blob);
-        });
-
         function downloadFile(url, callback) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
@@ -235,7 +201,7 @@
                 if (xhr.status === 200) {
                     callback(null, xhr.response);
                 } else {
-                    console.log ('Failed to download file');
+                    callback(new Error('Failed to download file'));
                 }
             };
             xhr.send();
@@ -247,127 +213,164 @@
                 var data = new Uint8Array(e.target.result);
                 var workbook = XLSX.read(data, {type: 'array'});
                 var sheet_name_list = workbook.SheetNames;
-                
-                insertarDesayunos(workbook, sheet_name_list);
-                insertarCafe(workbook, sheet_name_list);
-                insertarTe(workbook, sheet_name_list);
-                insertarMateCocido(workbook, sheet_name_list);
-                insertarLacteo(workbook, sheet_name_list);
-                insertarPanificado(workbook, sheet_name_list);
+
+                insertarPizzas(workbook, sheet_name_list);
+                insertarSimples(workbook, sheet_name_list);
+                insertarTriples(workbook, sheet_name_list);
+                insertarEspeciales(workbook, sheet_name_list);
+                insertarTostados(workbook, sheet_name_list);
+                insertarHamburguesas(workbook, sheet_name_list);
+                insertarLomitos(workbook, sheet_name_list);
             };
             reader.readAsArrayBuffer(blob);
         }
-        
-        //C1
-        function insertarDesayunos(workbook, sheet_name_list) {
-            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
-            let listaDesayunos = document.getElementById('script-desayunos');
 
-            for (var i = 2; i < xlData.length && xlData[i][16] !== undefined; i++) {
+        function insertarPizzas(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[4]], {header: 1});
+            let listaPizzas = document.getElementById('script-pizzas');
+
+            for (var i = 2; i < xlData.length && xlData[i][9] !== undefined; i++) {
                 var row = xlData[i];
-                var desayunoHTML = `
+
+                var itemHTML = `
                     <div class="row align-items-center mb-5">
                         <div class="col-12 col-sm-9">
-                            <h4>${row[16]}</h4>
-                            <p class="m-0">${row[17]}</p>
-                            <h5 class="menu-price">$${row[18]}</h5>
+                            <h4>${row[9]}</h4>
+                            <p class="m-0">${row[10]}</p>
+                            <h5 class="menu-price">$${row[11]}</h5>
                         </div>
                     </div>
-                `;
-                listaDesayunos.innerHTML += desayunoHTML;
+                    `;
+                    listaPizzas.innerHTML += itemHTML;
             }
         };
-        function insertarCafe(workbook, sheet_name_list) {
-            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
-            let listaCafeteria = document.getElementById('script-cafeteria-cafe');
+        function insertarSimples(workbook, sheet_name_list) {
+            //script-simples
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaSimples = document.getElementById('script-simples');
 
             for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
-                            <div class="row align-items-center mb-5">
-                                <div class="col-12 col-sm-9">
-                                    <h4>${row[1]}</h4>
-                                    <h5 class="menu-price">$${row[2]}</h5>
-                                </div>
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[1]}</h4>
+                                <p class="m-0">${row[2]}</p>
+                                <h5 class="menu-price">$${row[3]}</h5>
                             </div>
+                        </div>
                         `;
-                listaCafeteria.innerHTML += itemHTML;
+                        listaSimples.innerHTML += itemHTML;
             }
         };
-        function insertarTe(workbook, sheet_name_list) {
-            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
-            let listaTe = document.getElementById('script-cafeteria-te');
+        function insertarTriples(workbook, sheet_name_list) {
+            //script-triples
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaTriples = document.getElementById('script-triples');
 
-            for (var i = 2; i < xlData.length && xlData[i][4] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][5] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
-                            <div class="row align-items-center mb-5">
-                                <div class="col-12 col-sm-9">
-                                    <h4>${row[4]}</h4>
-                                    <h5 class="menu-price">$${row[5]}</h5>
-                                </div>
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[5]}</h4>
+                                <p class="m-0">${row[6]}</p>
+                                <h5 class="menu-price">$${row[7]}</h5>
                             </div>
+                        </div>
                         `;
-                listaTe.innerHTML += itemHTML;
+                        listaTriples.innerHTML += itemHTML;
             }
         };
-        function insertarMateCocido(workbook, sheet_name_list) {
-            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
-            let listaMateCocido = document.getElementById('script-cafeteria-mateCocido');
+        function insertarEspeciales(workbook, sheet_name_list) {
+            //script-especiales
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaEspeciales = document.getElementById('script-especiales');
 
-            for (var i = 2; i < xlData.length && xlData[i][7] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][21] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
-                            <div class="row align-items-center mb-5">
-                                <div class="col-12 col-sm-9">
-                                    <h4>${row[7]}</h4>
-                                    <h5 class="menu-price">$${row[8]}</h5>
-                                </div>
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[21]}</h4>
+                                <p class="m-0">${row[22]}</p>
+                                <h5 class="menu-price">$${row[23]}</h5>
                             </div>
+                        </div>
                         `;
-                listaMateCocido.innerHTML += itemHTML;
+                        listaEspeciales.innerHTML += itemHTML;
             }
         };
-        function insertarLacteo(workbook, sheet_name_list) {
-            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
-            let listaLacteo = document.getElementById('script-cafeteria-lacteo');
+        function insertarTostados(workbook, sheet_name_list) {
+            //script-tostados
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaTostados = document.getElementById('script-tostados');
 
-            for (var i = 2; i < xlData.length && xlData[i][10] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][21] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
-                            <div class="row align-items-center mb-5">
-                                <div class="col-12 col-sm-9">
-                                    <h4>${row[10]}</h4>
-                                    <h5 class="menu-price">$${row[11]}</h5>
-                                </div>
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[21]}</h4>
+                                <p class="m-0">${row[22]}</p>
+                                <h5 class="menu-price">$${row[23]}</h5>
                             </div>
+                        </div>
                         `;
-                listaLacteo.innerHTML += itemHTML;
+                        listaTostados.innerHTML += itemHTML;
             }
         };
-        function insertarPanificado(workbook, sheet_name_list) {
-            //script-panificados
-            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]], {header: 1});
-            let listaPanificado = document.getElementById('script-panificados');
+        function insertarHamburguesas(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaHamburguesas = document.getElementById('script-hamburguesas');
 
             for (var i = 2; i < xlData.length && xlData[i][13] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
-                            <div class="row align-items-center mb-5">
-                                <div class="col-12 col-sm-9">
-                                    <h4>${row[13]}</h4>
-                                    <h5 class="menu-price">$${row[14]}</h5>
-                                </div>
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[13]}</h4>
+                                <p class="m-0">${row[14]}</p>
+                                <h5 class="menu-price">$${row[15]}</h5>
                             </div>
+                        </div>
                         `;
-                        listaPanificado.innerHTML += itemHTML;
+                        listaHamburguesas.innerHTML += itemHTML;
             }
         };
+        function insertarLomitos(workbook, sheet_name_list) {
+            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
+            let listaLomitos = document.getElementById('script-lomitos');
+
+            for (var i = 2; i < xlData.length && xlData[i][9] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                        <div class="row align-items-center mb-5">
+                            <div class="col-12 col-sm-9">
+                                <h4>${row[9]}</h4>
+                                <p class="m-0">${row[10]}</p>
+                                <h5 class="menu-price">$${row[11]}</h5>
+                            </div>
+                        </div>
+                        `;
+                        listaLomitos.innerHTML += itemHTML;
+            }
+        };
+
+        var fileUrl = 'https://docs.google.com/spreadsheets/d/1i6QhsVLGY0bN9T0LwlEg9tw9HQeVHi3i-A7Kjn6nw1E/edit?usp=sharing';
+        downloadFile(fileUrl, function(err, blob) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            handleFile(blob);
+        });
 
     </script>
 

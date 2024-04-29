@@ -73,8 +73,8 @@
                     <a href="./Promociones.html" class="nav-item nav-link">Promociones</a>
                     <a href="./Desayunos.html" class="nav-item nav-link">Desayunos</a>
                     <a href="./NuestraCocina.html" class="nav-item nav-link">Cocina y ensaladas</a>
-                    <a href="./Bebidas.html" class="nav-item nav-link">Bebidas</a>
-                    <a href="./Postres.html" class="nav-item nav-link">Postres</a>
+                    <a href="./Pizzas.html" class="nav-item nav-link">Sandwiches y pizzas</a>
+                    <a href="./Postres.html" class="nav-item nav-link">Postres y bebidas</a>
                     <a href="./Catering.html" class="nav-item nav-link">Servicios de catering</a>
 
                 </div>
@@ -105,6 +105,28 @@
         </div>
     </div>
     <!-- POSTRES End -->
+
+    <!-- BEBIDAS Start -->
+    <div class="offer container-fluid py-3 text-center position-relative overlay-bottom ">
+        <div style="padding-right: 8rem;" class="container py-3">
+            <h1 class="display-3 text-primary">BEBIDAS</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" id="script-bebidas"></div>
+
+                <div class="subCategorias col-lg-6"> CERVEZAS </div>
+                <div class="col-lg-6" id="script-cervezas"></div>
+
+                <div class="subCategorias col-lg-6">LICUADOS</div>
+                <div class="col-lg-6" id="script-licuados"></div>
+            </div>
+        </div>
+    </div>
+    <!-- BEBIDAS End -->
 
     <!-- Footer Start -->
     <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
@@ -190,6 +212,9 @@
                 var sheet_name_list = workbook.SheetNames;
                 
                 insertarPostres(workbook, sheet_name_list);
+                insertarBebidas(workbook, sheet_name_list);
+                insertarLicuados(workbook, sheet_name_list);
+                insertarCervezas(workbook, sheet_name_list);
             };
             reader.readAsArrayBuffer(blob);
         }
@@ -220,6 +245,66 @@
                     listaPostres.innerHTML += itemHTML;
             }
         };
+
+        function insertarBebidas(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaBebidas = document.getElementById('script-bebidas');
+
+            for (var i = 2; i < xlData.length && xlData[i][8] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[8]}</h4>
+                            <h5 class="menu-price">$${row[9]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaBebidas.innerHTML += itemHTML;
+            }
+        };
+
+        function insertarLicuados(workbook, sheet_name_list) {
+
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaLicuados = document.getElementById('script-licuados');
+
+            for (var i = 2; i < xlData.length && xlData[i][14] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[14]}</h4>
+                            <h5 class="menu-price">$${row[15]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaLicuados.innerHTML += itemHTML;
+            }
+        };
+
+        function insertarCervezas(workbook, sheet_name_list) {
+            let xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[3]], {header: 1});
+            let listaCervezas = document.getElementById('script-cervezas');
+
+            for (var i = 2; i < xlData.length && xlData[i][11] !== undefined; i++) {
+                var row = xlData[i];
+
+                var itemHTML = `
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 col-sm-9">
+                            <h4>${row[11]}</h4>
+                            <h5 class="menu-price">$${row[12]}</h5>
+                        </div>
+                    </div>
+                    `;
+                    listaCervezas.innerHTML += itemHTML;
+            }
+        };
+ 
+
     </script>
 
 
