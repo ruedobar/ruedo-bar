@@ -49,7 +49,7 @@
     }
     .MD-cuerpo { 
         background-color: burlywood;
-        background-image: url('./img/MDbkg-2.jpg') !important;
+        background-image: url(./img/MDbkg-2.jpg) !important;
         background-size: cover;
         background-position: center;
         background-position-y: top;
@@ -57,7 +57,8 @@
         min-height: 80svh;
         display: flex;
         align-items: center;
-        padding-top: 17svh;
+        align-content: stretch;
+        flex-direction: row;
 
     }
     .MD-foot { 
@@ -72,20 +73,18 @@
         color: azure;
         font-size: larger;
         font-weight: bolder;
-        text-align: center;
     }
     .MenuDiario-lista {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding-inline: 11svw;
         text-align: center;
-        font-size: calc(80% + 0.2rem);
+        margin-inline: 8svw;
+        row-gap: 2svh;
+        margin-top: 10svh;
     }
     .nombreMenuDiario {
         color: azure;
-        font-size: larger;
-        margin-bottom: 13px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
 </style>
 
@@ -97,7 +96,7 @@
             <a href="./index.html" target="_self">VEA NUESTRA CARTA AQUÍ</a>
         </div>
         <div class="MD-cuerpo">
-            <div class="MenuDiario-lista" id="script-MenuDiario"></div>
+            <div class="MenuDiario-lista" id="script-MenuDiario" ></div>
         </div>
         <div class="MD-foot">
             <a href="https://wa.me/5493412148540" target="_blank">Hacé tu pedido presionando aquí</a>
@@ -167,7 +166,7 @@
             for (var i = 2; i < xlData.length && xlData[i][1] !== undefined; i++) {
                 var row = xlData[i];
 
-                var itemHTML = `<h4 class="nombreMenuDiario">${row[1]}</h4>`;
+                var itemHTML = `<span class="nombreMenuDiario">&#186;	${row[1]}.</span>`;
                 listaMD.innerHTML += itemHTML;
             }
         };
