@@ -309,15 +309,15 @@
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[2]], {header: 1});
             let listaTostados = document.getElementById('script-tostados');
 
-            for (var i = 2; i < xlData.length && xlData[i][21] !== undefined; i++) {
+            for (var i = 2; i < xlData.length && xlData[i][17] !== undefined; i++) {
                 var row = xlData[i];
 
                 var itemHTML = `
                         <div class="row align-items-center mb-5">
                             <div class="col-12 col-sm-9">
-                                <h4>${row[21]}</h4>
-                                <p class="m-0">${row[22]}</p>
-                                <h5 class="menu-price">$${row[23]}</h5>
+                                <h4>${row[17]}</h4>
+                                <p class="m-0">${row[18]}</p>
+                                <h5 class="menu-price">$${row[19]}</h5>
                             </div>
                         </div>
                         `;
